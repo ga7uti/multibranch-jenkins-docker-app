@@ -1,1 +1,0 @@
-kill $(sudo lsof -t -i:9090)
