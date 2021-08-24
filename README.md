@@ -1,8 +1,8 @@
 # Multibranch Jenkins Docker App
-This repository is for the Build a multibranch Pipeline project.This uses the sample Spring Boot Java application 
+This repository is to the build a multibranch Pipeline project.This uses the sample Spring Boot Java application 
 with Maven as build tool.Its delivery will be different depending on the Git branch that Jenkins builds 
 from. That is, the branch being built determines which delivery stage of your Pipeline is executed.I have used 
-docker agent in the Jenkinfile to compile, build, test and package the application. 
+docker agent in the Jenkinfile to compile, build, test and package the application.
 
 The root directory contains an example of the Jenkinsfile (i.e. Pipeline) and the scripts that contains shell scripts with commands that are executed 
 when Jenkins processes either the "Deliver for development" or "Deploy for production" stages of your Pipeline (depending on
