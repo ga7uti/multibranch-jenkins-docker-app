@@ -30,9 +30,15 @@ pipeline{
                 branch 'dev'
             }
             steps {
-                sh './deploy.sh'
-                input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                sh './kill.sh'
+                echo 'Deliver for development'
+            }
+        }
+        stage('Deliver for production') {
+            when {
+                branch 'prod'
+            }
+            steps {
+                echo 'Deliver for production'
             }
         }
     }
