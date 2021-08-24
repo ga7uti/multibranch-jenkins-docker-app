@@ -1,1 +1,1 @@
-kill $(cat .pidfile)
+kill $(sudo lsof -t -i:9090)

@@ -47,6 +47,14 @@ pipeline{
                             sshRemove remote: remote, path: '/home/ec2-user/deploy.sh'
                             }
                 }
+                input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                script{
+                   sshPut remote: remote, from: 'kill.sh', into: '/home/ec2-user/'
+                   sshCommand remote: remote, command: 'cd /home/ec2-user/; chown ec2-user: kill.sh; chmod +x kill.sh'
+                   sshCommand remote: remote, command: 'cd /home/ec2-user/;dos2unix kill.sh;sudo ./kill.sh'
+                   sshRemove remote: remote, path: '/home/ec2-user/kill.sh'
+
+                }
             }
         }
         stage('Deliver for production') {
