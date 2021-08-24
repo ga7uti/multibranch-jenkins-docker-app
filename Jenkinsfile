@@ -39,7 +39,6 @@ pipeline{
             }
             steps {
                 echo 'Deliver for production'
-                sh 'mvn deploy'
             }
         }
     }
