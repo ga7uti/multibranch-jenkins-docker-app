@@ -1,1 +1,1 @@
-java -jar target/*jar
+java -jar jenkins-app-0.0.1-SNAPSHOT.jar
