@@ -4,6 +4,9 @@ pipeline{
             image 'maven:3.8.2-jdk-8'
         }
     }
+    environment {
+        HOME="."
+    }
     stages{
         stage("Compile"){
             steps{
