@@ -32,12 +32,12 @@ pipeline{
             steps {
                 echo 'Deliver for development'
                 script {
-                            withCredentials([sshUserPrivateKey(credentialsId: 'ec2_credentials', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'ec2-user')]) {
+                            withCredentials([sshUserPrivateKey(credentialsId: 'your_ssh_credentials_id', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'user_name')]) {
                             def remote = [:]
-                            remote.name = 'ec2-user'
-                            remote.host = 'ec2-52-66-206-100.ap-south-1.compute.amazonaws.com'
+                            remote.name = 'remote_name'
+                            remote.host = 'remote_host'
                             remote.allowAnyHosts = true
-                            remote.user = 'ec2-user'
+                            remote.user = 'remote_user'
                             remote.identityFile = identity
                             sshPut remote: remote, from: 'deploy_dev.sh', into: '/home/ec2-user/'
                             sshCommand remote: remote, command: 'cd /home/ec2-user/; chown ec2-user: deploy_dev.sh; chmod +x deploy_dev.sh'
@@ -56,12 +56,12 @@ pipeline{
             steps {
                 echo 'Deliver for production'
                 script {
-                            withCredentials([sshUserPrivateKey(credentialsId: 'ec2_credentials', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'ec2-user')]) {
+                            withCredentials([sshUserPrivateKey(credentialsId: 'your_ssh_credentials_id', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'user_name')]) {
                             def remote = [:]
-                            remote.name = 'ec2-user'
-                            remote.host = 'ec2-52-66-206-100.ap-south-1.compute.amazonaws.com'
+                            remote.name = 'remote_name'
+                            remote.host = 'remote_host'
                             remote.allowAnyHosts = true
-                            remote.user = 'ec2-user'
+                            remote.user = 'remote_user'
                             remote.identityFile = identity
                             sshPut remote: remote, from: 'deploy_prod.sh', into: '/home/ec2-user/'
                             sshCommand remote: remote, command: 'cd /home/ec2-user/; chown ec2-user: deploy_prod.sh; chmod +x deploy_prod.sh'
