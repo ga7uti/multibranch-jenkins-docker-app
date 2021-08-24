@@ -25,5 +25,15 @@ pipeline{
                 sh 'mvn package'
             }
         }
+        stage('Deliver for development') {
+            when {
+                branch 'dev'
+            }
+            steps {
+                sh './deploy.sh'
+                input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                sh './kill.sh'
+            }
+        }
     }
 }
