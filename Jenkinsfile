@@ -31,6 +31,7 @@ pipeline{
             }
             steps {
                 echo 'Deliver for development'
+                sh './deploy.sh'
             }
         }
         stage('Deliver for production') {
