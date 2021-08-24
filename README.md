@@ -8,6 +8,11 @@ The root directory contains an example of the Jenkinsfile (i.e. Pipeline) and th
 when Jenkins processes either the "Deliver for development" or "Deploy for production" stages of your Pipeline (depending on
 the branch that Jenkins builds from).
 
+##Prerequisite
+1. Docker
+2. Goto [this repo](https://github.com/ga7uti/run-jenkins-in-docker.git) and follow the instructions
+
+
 ## Build Steps
 1. Clone repository
 ```bash
